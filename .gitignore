@@ -13,3 +13,12 @@ override.tf.json
 .terraformrc
 terraform.rc
 *.tfvars
+!example.tfvars
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
