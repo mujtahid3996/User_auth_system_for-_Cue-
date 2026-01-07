@@ -1,6 +1,6 @@
 # ==============================================================================
-# AWS CloudWatch Log Group - Cognito User Pool-এর অ্যাক্টিভিটি ট্র্যাক করার জন্য
-# কাজ: ইউজার পুলের লগইন, লগআউট এবং পাসওয়ার্ড রিসেটের মতো সব ইভেন্ট এখানে স্টোর হয়।
+# AWS CloudWatch Log Group - Cognito লগ সংরক্ষণের জন্য একটি log group তৈরি করে।
+# Cognito User Pool থেকে এখানে লগ পাঠানোর configuration এই Terraform-এ নেই।
 # ==============================================================================
 resource "aws_cloudwatch_log_group" "user_pool_logs" {
   name              = "/aws/cognito/user_pool/${local.prefix}-user-pool-logs"
@@ -10,8 +10,8 @@ resource "aws_cloudwatch_log_group" "user_pool_logs" {
 
 # ==============================================================================
 # AWS CloudWatch Metric Filter - ভুল লগইন চেষ্টা শনাক্ত এবং গণনা করার জন্য
-# কাজ: লগ ফাইলের ভেতর থেকে "Failed authentication" স্ট্রিংটি খুঁজে বের করে 
-#       সেটিকে একটি মেট্রিক হিসেবে কাউন্ট করে।
+# কাজ: এই log group-এ থাকা লগে "Failed authentication" স্ট্রিং খুঁজে পেলে
+#       প্রতিটি মিলকে একটি মেট্রিক হিসেবে গণনা করে।
 # ==============================================================================
 resource "aws_cloudwatch_log_metric_filter" "failed_login_patterns" {
   name           = "${local.prefix}-failed-login-patterns"
