@@ -14,3 +14,10 @@ resource "aws_cognito_user_pool" "user_pool" {
   }
   mfa_configuration = var.enable_mfa ? "ON" : "OFF"
 }
+
+resource "aws_cognito_user_pool_client" "user_pool_client" {
+  name                = "${local.prefix}-user-pool-client"
+  user_pool_id        = aws_cognito_user_pool.user_pool.id
+  generate_secret     = false
+  explicit_auth_flows = ["ALLOW_USER_PASSWORD_AUTH", "ALLOW_REFRESH_TOKEN_AUTH"]
+}
