@@ -46,6 +46,7 @@ resource "aws_iam_policy" "lambda_policy" {
   })
 }
 
+# তৈরি করা custom policy-টি Lambda execution role-এর সঙ্গে যুক্ত করে।
 resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.lambda_policy.arn
