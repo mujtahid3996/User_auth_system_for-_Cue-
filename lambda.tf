@@ -20,12 +20,14 @@ resource "aws_iam_role_policy_attachment" "lambda_basic" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+# Lambda execution role-কে প্রয়োজনীয় AWS service access দেওয়ার জন্য এই policy তৈরি করা হয়।
 resource "aws_iam_policy" "lambda_policy" {
   name = "${local.prefix}-auth-lambda-policy"
 
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
+      # Lambda-কে auth DynamoDB table-এ item যোগ করা ও পড়ার অনুমতি দেয়।
       {
         Effect = "Allow"
         Action = [
@@ -34,6 +36,7 @@ resource "aws_iam_policy" "lambda_policy" {
         ]
         Resource = aws_dynamodb_table.auth_table.arn
       },
+      # Lambda-কে welcome notification topic-এ message publish করার অনুমতি দেয়।
       {
         Effect   = "Allow"
         Action   = ["sns:Publish"]
