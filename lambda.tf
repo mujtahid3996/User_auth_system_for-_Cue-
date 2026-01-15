@@ -58,6 +58,7 @@ data "archive_file" "lambda_zip" {
   output_path = "${path.module}/profile_creator.zip"
 }
 
+# ZIP package থেকে profile creator Lambda function তৈরি ও configure করে।
 resource "aws_lambda_function" "functions" {
 
   filename         = data.archive_file.lambda_zip.output_path
