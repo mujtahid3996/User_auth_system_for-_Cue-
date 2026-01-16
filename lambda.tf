@@ -75,6 +75,7 @@ resource "aws_lambda_function" "functions" {
     }
   }
 }
+# নির্দিষ্ট Cognito User Pool-কে এই Lambda function invoke করার অনুমতি দেয়।
 resource "aws_lambda_permission" "lambda_permission" {
   statement_id  = "AllowExecutionFromCognito"
   action        = "lambda:InvokeFunction"
