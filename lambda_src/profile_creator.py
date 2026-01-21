@@ -32,3 +32,7 @@ def lambda_handler(event, context):
             "email": email
         }, indent=2)
     )
+
+    logger.info(f"Notification sent for user {email }")
+
+    return event
