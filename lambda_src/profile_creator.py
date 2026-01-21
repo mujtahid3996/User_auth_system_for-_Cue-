@@ -13,3 +13,8 @@ sns = boto3.client("sns")
 dynamodb = boto3.resource("dynamodb")
 
 
+def lambda_handler(event, context):
+    logger.info(f"Profile creation started for user: {json.dumps(event)}")
+    user_id = event["userName"]
+    email = event["request"]["userAttributes"]["email"]
+    table = dynamodb.Table(os.environ["DYNAMODB_TABLE_NAME"])
