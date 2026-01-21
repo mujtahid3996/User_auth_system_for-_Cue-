@@ -23,3 +23,12 @@ def lambda_handler(event, context):
         "email": email,
         "createdAt": datetime.now(timezone.utc).isoformat()
     })
+    sns.publish(
+        TopicArn=os.environ["SNS_TOPIC_ARN"],
+        Subject=f"Welcome to our system!",
+        Message=json.dumps({
+            "message": f"Hi {email} welcome to our system! Your registration is successful.",
+            "user_id": user_id,
+            "email": email
+        }, indent=2)
+    )
