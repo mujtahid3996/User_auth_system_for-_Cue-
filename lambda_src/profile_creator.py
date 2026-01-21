@@ -18,3 +18,8 @@ def lambda_handler(event, context):
     user_id = event["userName"]
     email = event["request"]["userAttributes"]["email"]
     table = dynamodb.Table(os.environ["DYNAMODB_TABLE_NAME"])
+    table.put_item(Item={
+        "user_id": user_id,
+        "email": email,
+        "createdAt": datetime.now(timezone.utc).isoformat()
+    })
