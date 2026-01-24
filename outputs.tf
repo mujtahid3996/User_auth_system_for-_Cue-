@@ -10,3 +10,9 @@ output "dynamodb_table_name" {
   description = "DynamoDB table name"
   value       = aws_dynamodb_table.auth_table.name
 }
+
+# CloudWatch failed-login alarm-এর নাম output হিসেবে দেখায়।
+output "cloudwatch_alarm_name" {
+  description = "CloudWatch alarm name"
+  value       = aws_cloudwatch_metric_alarm.failed_login_alarm.alarm_name
+}
