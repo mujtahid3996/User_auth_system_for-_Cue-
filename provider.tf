@@ -11,3 +11,10 @@ terraform {
       version = "~> 5.0"
     }
 
+    # Archive provider-এর source ও version constraint নির্ধারণ করে।
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.4"
+    }
+  }
+}
