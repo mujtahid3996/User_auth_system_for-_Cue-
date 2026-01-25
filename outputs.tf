@@ -16,3 +16,9 @@ output "cloudwatch_alarm_name" {
   description = "CloudWatch alarm name"
   value       = aws_cloudwatch_metric_alarm.failed_login_alarm.alarm_name
 }
+
+# Failed-login alert পাঠানোর SNS topic-এর ARN output হিসেবে দেখায়।
+output "alert_sns_topic_arn" {
+  description = "alert topic ARN"
+  value = aws_sns_topic.alert_topic.arn
+}
