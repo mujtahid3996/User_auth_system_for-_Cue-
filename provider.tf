@@ -5,3 +5,9 @@ terraform {
   # এই configuration-এ ব্যবহৃত provider-গুলোর source ও version নির্ধারণ করে।
   required_providers {
 
+    # AWS provider-এর source ও version constraint নির্ধারণ করে।
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+
