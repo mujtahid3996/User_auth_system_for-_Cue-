@@ -18,3 +18,8 @@ terraform {
     }
   }
 }
+
+# AWS provider-এর deployment configuration সেট করে।
+provider "aws" {
+  region = var.aws_region
+
