@@ -22,3 +22,9 @@ output "alert_sns_topic_arn" {
   description = "alert topic ARN"
   value = aws_sns_topic.alert_topic.arn
 }
+
+# Welcome notification পাঠানোর SNS topic-এর ARN output হিসেবে দেখায়।
+output "welcome_sns_topic_arn" {
+  description = "welcome topic ARN"
+  value = aws_sns_topic.welcome_topic.arn
+}
