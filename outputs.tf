@@ -28,3 +28,9 @@ output "welcome_sns_topic_arn" {
   description = "welcome topic ARN"
   value = aws_sns_topic.welcome_topic.arn
 }
+
+# Cognito User Pool-এর ID output হিসেবে দেখায়।
+output "cognito_user_pool_id" {
+  description = "Cognito User Pool ID"
+  value       = aws_cognito_user_pool.user_pool.id
+}
