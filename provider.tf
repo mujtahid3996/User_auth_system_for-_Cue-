@@ -23,3 +23,6 @@ terraform {
 provider "aws" {
   region = var.aws_region
 
+  # এই provider দিয়ে তৈরি AWS resource-গুলোতে স্বয়ংক্রিয়ভাবে default tags যোগ করে।
+  default_tags {
+
