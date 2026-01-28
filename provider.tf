@@ -26,3 +26,9 @@ provider "aws" {
   # এই provider দিয়ে তৈরি AWS resource-গুলোতে স্বয়ংক্রিয়ভাবে default tags যোগ করে।
   default_tags {
 
+    # Resource-গুলোতে প্রয়োগ করার default tag key-value জোড়া নির্ধারণ করে।
+    tags = {
+      Environment = terraform.workspace
+      ManagedBy   = "Terraform"
+      Project     = "UserAuthSystem"
+    }
