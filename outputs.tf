@@ -34,3 +34,9 @@ output "cognito_user_pool_id" {
   description = "Cognito User Pool ID"
   value       = aws_cognito_user_pool.user_pool.id
 }
+
+# Cognito User Pool client-এর ID output হিসেবে দেখায়।
+output "cognito_user_pool_client_id" {
+  description = "Cognito User Pool Client ID"
+  value       = aws_cognito_user_pool_client.user_pool_client.id
+}
