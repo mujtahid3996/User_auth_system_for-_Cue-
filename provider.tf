@@ -32,3 +32,5 @@ provider "aws" {
       ManagedBy   = "Terraform"
       Project     = "UserAuthSystem"
     }
+  }
+}
