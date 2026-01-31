@@ -10,3 +10,6 @@ resource "aws_sns_topic_subscription" "Welcome_email" {
   protocol  = "email"
   endpoint  = var.alert_email
 }
+
+# Alert notification পাঠানোর জন্য SNS topic তৈরি করে।
+resource "aws_sns_topic" "alert_topic" {
