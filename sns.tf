@@ -13,3 +13,5 @@ resource "aws_sns_topic_subscription" "Welcome_email" {
 
 # Alert notification পাঠানোর জন্য SNS topic তৈরি করে।
 resource "aws_sns_topic" "alert_topic" {
+  name = "${local.prefix}-alert-notifications"
+}
