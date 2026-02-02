@@ -15,3 +15,7 @@ resource "aws_sns_topic_subscription" "Welcome_email" {
 resource "aws_sns_topic" "alert_topic" {
   name = "${local.prefix}-alert-notifications"
 }
+
+# Alert notification ইমেইলে পাওয়ার জন্য email subscription তৈরি করে।
+# SNS থেকে পাঠানো confirmation email-এ subscriber-কে subscription নিশ্চিত করতে হবে।
+resource "aws_sns_topic_subscription" "Alert_email" {
