@@ -19,3 +19,7 @@ resource "aws_sns_topic" "alert_topic" {
 # Alert notification ইমেইলে পাওয়ার জন্য email subscription তৈরি করে।
 # SNS থেকে পাঠানো confirmation email-এ subscriber-কে subscription নিশ্চিত করতে হবে।
 resource "aws_sns_topic_subscription" "Alert_email" {
+  topic_arn = aws_sns_topic.alert_topic.arn
+  protocol  = "email"
+  endpoint  = var.alert_email
+}
