@@ -4,3 +4,6 @@ variable "aws_region" {
   type        = string
   default     = "ap-south-1"
 }
+
+# Welcome ও alert notification পাঠানোর email address নির্ধারণ করে।
+variable "alert_email" {
