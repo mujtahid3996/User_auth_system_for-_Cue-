@@ -7,3 +7,5 @@ variable "aws_region" {
 
 # Welcome ও alert notification পাঠানোর email address নির্ধারণ করে।
 variable "alert_email" {
+  description = "Email address for CloudWatch alarm notifications"
+  type        = string
