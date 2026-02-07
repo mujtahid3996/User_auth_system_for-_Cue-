@@ -11,3 +11,7 @@ variable "alert_email" {
   type        = string
   sensitive   = true  
 }
+
+# Cognito User Pool-এ MFA চালু বা বন্ধ রাখে।
+variable "enable_mfa" {
+  description = "Enable MFA for the Cognito User Pool"
